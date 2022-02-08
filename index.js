@@ -4,8 +4,6 @@ const express = require('express'),
       uuid = require('uuid');
 const app = express();
 
-app.use(bodyParser.json());
-
 let movies = [
   {
     "Title": 'Star Wars',
@@ -17,7 +15,7 @@ let movies = [
     "Director": {
       "Name": "George Lucas",
       "Biography": "Director George Lucas is an American filmmaker and writer. He studied cinematography at the University of Southern California and caught the eye of Francis Ford Coppola, who helped him enter the film business. Lucas is best known for writing and directing Star Wars and creating the Indiana Jones series, as well as founding the Industrial Light & Magic special effects company.",
-      "Birthdate": "May 14, 1944"
+      "Date of birth": "May 14, 1944"
     },
     "ImageURL": 'https://www.imdb.com/title/tt0076759/mediaviewer/rm3263717120/'
   },
@@ -31,7 +29,7 @@ let movies = [
     "Director": {
       "Name": "Stanley Kubrick",
       "Biography": "Born in New York City on July 26, 1928, Stanley Kubrick worked as a photographer for Look magazine before exploring filmmaking in the 1950s. He went on to direct a number of acclaimed films, including Spartacus (1960), Lolita (1962), Dr. Strangelove (1964), A Clockwork Orange (1971), 2001: A Space Odyssey (1968), The Shining (1980), Full Metal Jacket (1987) and Eyes Wide Shut (1999). Kubrick died in England on March 7, 1999.",
-      "Birthdate": "July 26, 1928"
+      "Date of birth": "July 26, 1928"
     },
     "ImageURL": 'https://www.imdb.com/title/tt0066921/mediaviewer/rm1351407872/'
   },
@@ -45,7 +43,7 @@ let movies = [
     "Director": {
       "Name": "Larry Wachowski / Andy Wachowski",
       "Biography": "Lana Wachowski and her sister Lilly Wachowski, also known as the Wachowskis, are the duo behind such ground-breaking movies as The Matrix (1999) and Cloud Atlas (2012). Born to mother Lynne, a nurse, and father Ron, a businessman of Polish descent, Wachowski grew up in Chicago and formed a tight creative relationship with her sister Lilly. After the siblings dropped out of college, they started a construction business and wrote screenplays. Their 1995 script, Assassins (1995), was made into a movie, leading to a Warner Bros contract. After that time, the Wachowskis devoted themselves to their movie careers. In 2012, during interviews for Cloud Atlas and in her acceptance speech for the Human Rights Campaign's Visibility Award, Lana spoke about her experience of being a transgender woman, sacrificing her much cherished anonymity out of a sense of responsibility. Lana is known to be extremely well-read, loves comic books and exploring ideas of imaginary worlds, and was inspired by Stanley Kubrick's 2001: A Space Odyssey (1968) in creating Cloud Atlas.",
-      "Birthdate": "June 21, 1965 / December 29, 1967"
+      "Date of birth": "June 21, 1965 / December 29, 1967"
     },
     "ImageURL": 'https://www.imdb.com/title/tt0133093/mediaviewer/rm525547776/'
   },
@@ -59,7 +57,7 @@ let movies = [
     "Director": {
       "Name": "Alejandro Jodorowsky",
       "Biography": "Alejandro Jodorowsky Prullansky (born 17 February 1929) is a Chilean filmmaker, playwright, author, actor, and psychotherapist. He is most famous for his avant-garde films, such as 'El Topo' and 'The Holy Mountain'.",
-      "Birthdate": "February 17, 1929"
+      "Date of birth": "February 17, 1929"
     },
     "ImageURL": 'https://www.imdb.com/title/tt0071615/mediaviewer/rm3911191040/'
   },
@@ -73,7 +71,7 @@ let movies = [
     "Director": {
       "Name": "Richard Linklater",
       "Biography": "Self-taught writer-director Richard Stuart Linklater was born in Houston, Texas, to Diane Margaret (Krieger), who taught at a university, and Charles W. Linklater III. Richard was among the first and most successful talents to emerge during the American independent film renaissance of the 1990s. Typically setting each of his movies during one 24-hour period, Linklater's work explored what he dubbed 'the youth rebellion continuum', focusing in fine detail on generational rites and mores with rare compassion and understanding while definitively capturing the 20-something culture of his era through a series of nuanced, illuminating ensemble pieces which introduced any number of talented young actors into the Hollywood firmament. Born in Houston, Texas, Linklater suspended his educational career at Sam Houston State University in 1982, to work on an offshore oil rig in the Gulf of Mexico. He subsequently relocated to the state's capital of Austin, where he founded a film society and began work on his debut film, 1987's It's Impossible to Learn to Plow by Reading Books (1988). Three years later he released the sprawling Slacker (1990), an insightful, virtually plotless look at 1990s youth culture that became a favorite on the festival circuit prior to earning vast acclaim at Sundance in 1991. Upon its commercial release, the movie, made for less than $23,000, became the subject of considerable mainstream media attention, with the term 'slacker' becoming a much-overused catch-all tag employed to affix a name and identity to America's disaffected youth culture.",
-      "Birthdate": "July 30, 1960"
+      "Date of birth": "July 30, 1960"
     },
     "ImageURL": 'https://www.imdb.com/title/tt0243017/mediaviewer/rm3365810432/'
   },
@@ -87,7 +85,7 @@ let movies = [
     "Director": {
       "Name": "Peter Joseph",
       "Biography": "Peter Joseph (Winston-Salem, NC, USA) inadvertently became globally acclaimed after a private performance work called 'Zeitgeist' went viral online in 2007. This highly controversial art piece was artlessly placed online after a short performance run in Manhattan. Peter is/was a solo percussionist/electronic musician and originally produced 'Zeitgeist' as a performance, not a 'film'. Afterwards 'Zeitgeist' became 'Zeitgeist: The Movie', with over 50 million+ online views counted in the first year alone via Google Video, Peter went on to produce 2 sequels ('Zeitgeist: Addendum' and 'Zeitgeist: Moving Forward') to that work, each achieving a similar level of viral attention. It is estimated that combined, well over 350 million people have seen one or more of his three documentaries since 2007. Apart from his film and music work, Peter is a dedicated activist and has lectured around the world, including the UK, Canada, America, Brazil, Germany & Israel, on subjects of cultural/social sustainability, the importance of critical thought, and the social role of the arts and scientific literacy. He has been profiled in the New York Times, The Huffington Post, The Marker, Free Speech TV, The Young Turks, Hollywood Today and many other outlets. He has participated in multiple TEDx Events, has worked with The Global Summit and is also a frequent social/economic critic on the news network Russia Today.",
-      "Birthdate": "February 4, 1979"
+      "Date of birth": "February 4, 1979"
     },
     "ImageURL": 'https://www.imdb.com/title/tt1166827/mediaviewer/rm3788871168/'
   },
@@ -101,7 +99,7 @@ let movies = [
     "Director": {
       "Name": "Pier Paolo Pasolini",
       "Biography": "Pier Paolo Pasolini achieved fame and notoriety long before he entered the film industry. A published poet at 19, he had already written numerous novels and essays before his first screenplay in 1954. His first film Accattone (1961) was based on his own novel and its violent depiction of the life of a pimp in the slums of Rome caused a sensation. He was arrested in 1962 when his contribution to the portmanteau film Ro.Go.Pa.G. (1963) was considered blasphemous and given a suspended sentence. It might have been expected that his next film, The Gospel According to Matthew (1964) (The Gospel According to St. Matthew), which presented the Biblical story in a totally realistic, stripped-down style, would cause a similar fuss but, in fact, it was rapturously acclaimed as one of the few honest portrayals of Christ on screen. Its original Italian title pointedly omitted the Saint in St. Matthew). Pasolini's film career would then alternate distinctly personal and often scandalously erotic adaptations of classic literary texts: Oedipus Rex (1967) (Oedipus Rex); The Decameron (1971); The Canterbury Tales (1972) (The Canterbury Tales); Arabian Nights (1974) (Arabian Nights), with his own more personal projects, expressing his controversial views on Marxism, atheism, fascism and homosexuality, notably Theorem (1968) (Theorem), Pigsty and the notorious Salò, or the 120 Days of Sodom (1975), a relentlessly grim fusion of Benito Mussolini's Fascist Italy with the 'Marquis de Sade' which was banned in Italy and many other countries for several years. Pasolini was murdered in still-mysterious circumstances shortly after completing the film.",
-      "Birthdate": "November 2, 1975"
+      "Date of birth": "November 2, 1975"
     },
     "ImageURL": 'https://www.imdb.com/title/tt0073650/mediaviewer/rm3704080897/'
   },
@@ -115,7 +113,7 @@ let movies = [
     "Director": {
       "Name": "David Lynch",
       "Biography": "Born in 1946 in Missoula, Montana, David Lynch was raised in small-town America. After high school, he went to Boston to attend the School of the Museum of Fine Arts. Shortly after that, he planned a three-year trip to Europe to work on his art, but didn't take to it and left after 15 days. In 1977, he released his first film Eraserhead (1977), which, although not critically acclaimed, was noticed by many people, including Francis Ford Coppola, who was rumored to have screenings of it for his cast and crew on the Apocalypse Now (1979) set. After a stream of visually striking films such as Blue Velvet (1986), Lost Highway (1997) and Mulholland Drive (2001). These films and others, beginning with Blue Velvet (1986), and including his Twin Peaks (1990) T.V. series, feature what has now been added to signature Lynch features, such as vibrant colors, the use of dreams and montage to connect character thought and multiple emotions into one sequence. In addition to that, since Blue Velvet (1986), Lynch has gained the reputation of one of the foremost auteurs in the film industry, and one of the few living auteurs who continually defies cinematic convention. His films continually represent his ideal that films, representing life, should be complex, and in some cases, inexplicable. Due to his decisive innovation and the beautiful confusion of his films, he will always be recognized as if not one of the greatest film-makers, one of the most original. Lynch is an innovative director, and even if his films aren't necessarily realistic, they are real in their representation of what life is: a confusing, irrational series of events that have little purpose, and one makes one's own interpretation of each event, giving life one's own purpose. Lynch wants his films to resonate emotionally and instinctively, and for every person to relate and find its own understanding. As he said, 'Life is very, very confusing, and so films should be allowed to be, too'. David Lynch is original. He has done things in film-making that D.W. Griffith did in his day. David Lynch will never stop making beauty on the screen.",
-      "Birthdate": "January 20, 1946"
+      "Date of birth": "January 20, 1946"
     },
     "ImageURL": 'https://www.imdb.com/title/tt0116922/mediaviewer/rm3025737728/'
   },
@@ -129,7 +127,7 @@ let movies = [
     "Director": {
       "Name": "Akira Kurosawa",
       "Biography": "After training as a painter (he storyboards his films as full-scale paintings), Kurosawa entered the film industry in 1936 as an assistant director, eventually making his directorial debut with Sanshiro Sugata (1943). Within a few years, Kurosawa had achieved sufficient stature to allow him greater creative freedom. Drunken Angel (1948) was the first film he made without extensive studio interference, and marked his first collaboration with Toshirô Mifune. In the coming decades, the two would make 16 movies together, and Mifune became as closely associated with Kurosawa's films as was John Wayne with the films of Kurosawa's idol, John Ford. After working in a wide range of genres, Kurosawa made his international breakthrough film Rashomon (1950) in 1950. It won the top prize at the Venice Film Festival, and first revealed the richness of Japanese cinema to the West. The next few years saw the low-key, touching Ikiru (1952) (Living), the epic Seven Samurai (1954), the barbaric, riveting Shakespeare adaptation Throne of Blood (1957), and a fun pair of samurai comedies Yojimbo (1961) and Sanjuro (1962). After a lean period in the late 1960s and early 1970s, though, Kurosawa attempted suicide. He survived, and made a small, personal, low-budget picture with Dodes'ka-den (1970), a larger-scale Russian co-production Dersu Uzala (1975) and, with the help of admirers Francis Ford Coppola and George Lucas, the samurai tale Kagemusha (1980), which Kurosawa described as a dry run for Ran (1985), an epic adaptation of Shakespeare's 'King Lear.' He continued to work into his eighties with the more personal Dreams (1990), Rhapsody in August (1991) and Mādadayo (1993). Kurosawa's films have always been more popular in the West than in his native Japan, where critics have viewed his adaptations of Western genres and authors (William Shakespeare, Fyodor Dostoevsky, Maxim Gorky and Evan Hunter) with suspicion - but he's revered by American and European film-makers, who remade Rashomon (1950) as The Outrage (1964), Seven Samurai (1954), as The Magnificent Seven (1960), Yojimbo (1961), as A Fistful of Dollars (1964) and The Hidden Fortress (1958), as Star Wars: Episode IV - A New Hope (1977).",
-      "Birthdate": "March 23, 1910"
+      "Date of birth": "March 23, 1910"
     },
     "ImageURL": 'https://www.imdb.com/title/tt0047478/mediaviewer/rm2518563840/'
   },
@@ -143,7 +141,7 @@ let movies = [
     "Director": {
       "Name": "Ari Aster",
       "Biography": "Ari Aster was born on July 15, 1986 in New York City, New York, USA. He is a director and writer, known for Hereditary (2018), Midsommar (2019) and Disappointment Blvd. (2022).",
-      "Birthdate": "July 15, 1986"
+      "Date of birth": "July 15, 1986"
     },
     "ImageURL": 'https://www.imdb.com/title/tt8772262/mediaviewer/rm3772802304/'
   }
@@ -151,28 +149,146 @@ let movies = [
 
 let users = [
   {
-    ID: 1,
-    NAME: "Stan",
-    FAVOURITE_MOVIES: []
+    "username": "TheKingOfBurden",
+    "name": "Stan",
+    "favourite_movies": [],
+    "id": 1
   },
   {
-    ID: 2,
-    NAME: "Elena",
-    FAVOURITE_MOVIES: []
+    "username": "MotherOfDragons",
+    "name": "Elena",
+    "favourite_movies": [],
+    "id": 2
   }
 ];
 
 app.use(morgan('common'));
+app.use(bodyParser.json());
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.send('Wellcome to myFlix - your movie app of choice!');
 });
 
+// READ // Gets a list of data about all movies
 app.get('/movies', (req, res) => {
-  res.json(movies);
+  res.status(200).json(movies);
 });
 
-app.use(express.static('public'));
+// READ // Gets a list of data about a single movie
+app.get('/movies/:title', (req, res) => {
+  const { title } = req.params;
+  const movie = movies.find(movie => movie.Title = title);
+
+  if (movie) {
+    res.status(200).json(movie)
+  } else {
+    res.status(404).send("This isn't the movie you are looking for!");
+  }
+});
+
+// READ // Gets the data for the 'Genre' sub-object
+app.get('/movies/genre/:genreName', (req, res) => {
+  const { genreName } = req.params;
+  const genre = movies.find(movie => movie.Genre.Name === genreName).Genre;
+
+  if (genre) {
+    res.status(200).json(genre)
+  } else {
+    res.status(404).send("This isn't the genre you are looking for!");
+  }
+});
+
+// READ // Gets the data for the 'Director' sub-object
+app.get('/movies/directors/:directorName', (req, res) => {
+  const { directorName } = req.params;
+  const director = movies.find(movie => movie.Director.Name === directorName).Director;
+
+  if (director) {
+    res.status(200).json(director)
+  } else {
+    res.status(404).send("This isn't the director you are looking for!");
+  }
+});
+
+// CREATE // Adding a new user to the 'users' array
+app.post('/users', (req, res) => {
+  const newUser = req.body;
+
+  if (newUser.username && newUser.name) {
+    newUser.id = uuid.v4();
+    users.push(newUser);
+    res.status(201).json(newUser);
+  } else {
+    res.status(400).send('Make sure to add a name & a username!')
+  }
+});
+
+// DELETE // Deleting an existing user 
+app.delete('/users/:id', (req, res) => {
+  const {id} = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    users = users.filter(user => user.id != id);
+    res.status(200).send(`${user.username}'s profile has successfully been delete!`);
+  } else {
+    res.status(400).send("No such user!")
+  }
+});
+
+// CREATE // Adding favourite movies
+app.post('/users/:id/:movieTitle', (req, res) => {
+  const {id, movieTitle} = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+    if (user.favourite_movies.includes(movieTitle)) {
+      res.status(418).send('This movie has already been added to your favourites!');
+    } else
+    user.favourite_movies.push(movieTitle);
+    res.status(201).send(`"${movieTitle}" has successfully been added as your favourite!`);
+  } else {
+    res.status(400).send('Make sure to add a movie from our database!')
+  }
+});
+
+// DELETE // Deleting a movie from favourites
+app.delete('/users/:id/:movieTitle', (req, res) => {
+  const {id, movieTitle} = req.params;
+
+  let user = users.find(user => user.id == id);
+
+  if (user) {
+
+    let include = user.favourite_movies.includes(movieTitle)
+    
+    if (!include) {
+      res.status(418).send('It is already gone!');
+    } else
+    user.favourite_movies = user.favourite_movies.filter(title => title !== movieTitle);
+    res.status(201).send(`"${movieTitle}" has successfully been removed from your favourites!`);
+  } else {
+    res.status(400).send("There isn't such a movie in our database!")
+  }
+});
+
+// UPDATE // Updating user info
+app.put('/users/:username', (req, res) => {
+  const { username } = req.params;
+  const updatedUser = req.body;
+
+  let user = users.find(user => user.username === username);
+  
+  if (user) {
+    user.username = updatedUser.username;
+    res.status(200).json(user)
+  } else {
+    res.status(400).send('No such user exists!')
+  }
+});
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
