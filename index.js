@@ -269,7 +269,7 @@ app.delete('/users/:id/:movieTitle', (req, res) => {
       res.status(418).send('It is already gone!');
     } else
     user.favourite_movies = user.favourite_movies.filter(title => title !== movieTitle);
-    res.status(201).send(`"${movieTitle}" has successfully been removed from your favourites!`);
+    res.status(200).send(`"${movieTitle}" has successfully been removed from your favourites!`);
   } else {
     res.status(400).send("There isn't such a movie in our database!")
   }

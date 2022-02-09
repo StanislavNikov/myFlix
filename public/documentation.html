@@ -6,6 +6,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Documentation</title>
+
+  <style>
+    #table {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #table td,
+    #table th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #table tr:hover {
+      background-color: #ddd;
+    }
+
+    #table th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04AA6D;
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
@@ -31,6 +61,222 @@
     <li>Allow users to remove a movie from their list of favorites</li>
     <li>Allow existing users to deregister</li>
   </ul>
+
+  <table id="table">
+    <thead>
+      <tr>
+        <th>Request</th>
+        <th>HTTP Method</th>
+        <th>URL</th>
+        <th>Request body data format</th>
+        <th>Response body data format</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Gets a list of data about all movies</td>
+        <td>GET</td>
+        <td>'/movies'</td>
+        <td>None</td>
+        <td>JSON object holding data about all the movies</td>
+      </tr>
+
+      <tr>
+        <td>Gets a list of data about a single movie</td>
+        <td>GET</td>
+        <td>'/movies/[title]'</td>
+        <td>None</td>
+        <td>JSON object holding data about a single movie, containing a <b>"Title"</b>, <b>"Description"</b>,
+          <b>"Genre"</b>, <b>"Director"</b>, and <b>"ImageURL"</b>. Example: </br><br>
+          <i>
+            { <br>
+            <b>"Title"</b>: 'Midsommar', <br>
+            <b>"Description"</b>: "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish
+            mid-summer
+            festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre
+            competition at the hands of a pagan cult.", <br>
+            <b>"Genre"</b>:
+            {
+            <b>"Name"</b>: "Horror", <br>
+            <b>"Definition"</b>: "Horror is a genre of storytelling intended to scare, shock, and thrill its audience.
+            Horror can
+            be interpreted in many different ways, but there is often a central villain, monster, or threat that is
+            often
+            a reflection of the fears being experienced by society at the time. This person or creature is called the
+            “other,” a term that refers to someone that is feared because they are different or misunderstood. This is
+            also why the horror genre has changed so much over the years. As culture and fears change, so does horror."
+            }, <br>
+            <b>"Director"</b>: <br>
+            {
+            <b>"Name"</b>: "Ari Aster", <br>
+            <b>"Biography"</b>: "Ari Aster was born on July 15, 1986 in New York City, New York, USA. He is a director
+            and
+            writer, known for Hereditary (2018), Midsommar (2019) and Disappointment Blvd. (2022).", <br>
+            <b>"Date of birth"</b>: "July 15, 1986"
+            }, <br>
+            <b>"ImageURL"</b>: 'https://www.imdb.com/title/tt8772262/mediaviewer/rm3772802304/' <br>
+            }
+          </i>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Gets the data for the "Genre" sub-object</td>
+        <td>GET</td>
+        <td>'/movies/genre/[genreName]'</td>
+        <td>None</td>
+        <td>A JSON object containing data about a <b>genre</b>. Example: <br><br>
+          <b>"Genre"</b>: <br>
+          <i>
+            { <br>
+            <b>"Name"</b>: "Horror", <br>
+            <b>"Definition"</b>: "Horror is a genre of storytelling intended to scare, shock, and thrill its audience.
+            Horror can
+            be interpreted in many different ways, but there is often a central villain, monster, or threat that is
+            often
+            a reflection of the fears being experienced by society at the time. This person or creature is called the
+            “other,” a term that refers to someone that is feared because they are different or misunderstood. This is
+            also why the horror genre has changed so much over the years. As culture and fears change, so does horror."
+            <br>
+            }
+          </i>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Gets the data for the "Director" sub-object</td>
+        <td>GET</td>
+        <td>'/movies/directors/[directorName]'</td>
+        <td>None</td>
+        <td>A JSON object containing data about a <b>director</b>. Example: <br><br>
+          <i>
+            { <br>
+            <b>"Name"</b>: "David Lynch", <br>
+            <b>"Biography"</b>: "Born in 1946 in Missoula, Montana, David Lynch was raised in small-town America. After
+            high
+            school, he went to Boston to attend the School of the Museum of Fine Arts. Shortly after that, he planned a
+            three-year trip to Europe to work on his art, but didn't take to it and left after 15 days. In 1977, he
+            released his first film Eraserhead (1977), which, although not critically acclaimed, was noticed by many
+            people, including Francis Ford Coppola, who was rumored to have screenings of it for his cast and crew on
+            the
+            Apocalypse Now (1979) set. After a stream of visually striking films such as Blue Velvet (1986), Lost
+            Highway
+            (1997) and Mulholland Drive (2001). These films and others, beginning with Blue Velvet (1986), and including
+            his Twin Peaks (1990) T.V. series, feature what has now been added to signature Lynch features, such as
+            vibrant colors, the use of dreams and montage to connect character thought and multiple emotions into one
+            sequence. In addition to that, since Blue Velvet (1986), Lynch has gained the reputation of one of the
+            foremost auteurs in the film industry, and one of the few living auteurs who continually defies cinematic
+            convention. His films continually represent his ideal that films, representing life, should be complex, and
+            in
+            some cases, inexplicable. Due to his decisive innovation and the beautiful confusion of his films, he will
+            always be recognized as if not one of the greatest film-makers, one of the most original. Lynch is an
+            innovative director, and even if his films aren't necessarily realistic, they are real in their
+            representation
+            of what life is: a confusing, irrational series of events that have little purpose, and one makes one's own
+            interpretation of each event, giving life one's own purpose. Lynch wants his films to resonate emotionally
+            and
+            instinctively, and for every person to relate and find its own understanding. As he said, 'Life is very,
+            very
+            confusing, and so films should be allowed to be, too'. David Lynch is original. He has done things in
+            film-making that D.W. Griffith did in his day. David Lynch will never stop making beauty on the screen.",
+            <br>
+            <b>"Date of birth"</b>: "January 20, 1946" <br>
+            }
+          </i>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Adding a new user</td>
+        <td>POST</td>
+        <td>'/users'</td>
+        <td>A JSON object holding
+          data about the user to
+          add. Example: <br><br>
+          <i>
+            { <br>
+            <b>"username"</b>: "D_Jesus", <br>
+            <b>"Name"</b>: "Nebuchadnezzar", <br>
+            <b>"favourite_movies"</b>: [] <br>
+            }
+          </i>
+        </td>
+        <td>A JSON object holding data
+          about the user that was
+          added, including an ID. Example: <br><br>
+          <i>
+            { <br>
+            <b>"username"</b>: "D_Jesus", <br>
+            <b>"Name"</b>: "Nebuchadnezzar", <br>
+            <b>"favourite_movies"</b>: [], <br>
+            <b>"id"</b>: "18bb3087-c68b-4411-8d84-6cf9c9bd9fe3" <br>
+            }
+          </i>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Deleting an existing User</td>
+        <td>DELETE</td>
+        <td>'/users/[id]'</td>
+        <td>None</td>
+        <td>A text message indicating
+          whether the user was
+          successfully removed.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Adding a movie to "favourite_movies" for a user</td>
+        <td>POST</td>
+        <td>'/users/[id]/[movieTitle]'</td>
+        <td>None</td>
+        <td>A text message indicating
+          whether the movie was
+          successfully added to "favourite_movies".</td>
+      </tr>
+
+      <tr>
+        <td>Removing a movie from favourites for a user</td>
+        <td>DELETE</td>
+        <td>'/users/[id]/[movieTitle]'</td>
+        <td>None</td>
+        <td>A text message indicating
+          whether the movie was
+          successfully removed.</td>
+      </tr>
+
+      <tr>
+        <td>Updating user's username</td>
+        <td>PUT</td>
+        <td>'/users/[username]'</td>
+        <td>A JSON object holding data
+          about the user to be updated with the <b>username</b> changes included. Example: <br><br>
+          <i>
+            { <br>
+            <b>"username"</b>: "TheKingOfBurden 777", <br>
+            <b>"Name"</b>: "Stan", <br>
+            <b>"favourite_movies"</b>: [], <br>
+            <b>"id"</b>: 1 <br>
+            }
+          </i>
+        </td>
+        <td>A JSON object holding data
+          about the updated user. Example: <br><br>
+          <i>
+            { <br>
+            <b>"username"</b>: "TheKingOfBurden 777", <br>
+            <b>"Name"</b>: "Stan", <br>
+            <b>"favourite_movies"</b>: [], <br>
+            <b>"id"</b>: 1 <br>
+            }
+          </i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
 </body>
 
 </html>
