@@ -10,7 +10,7 @@ let movies = [
     "Description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.",
     "Genre": {
       "Name": "Science fiction",
-      "Definition": "Also known as Sci-Fi, these are fictional stories based on science. They can be about the future or other worlds, and often include spaceships, extra-terrestrial beings (aliens), and advanced technology we don’t currently have."
+      "Definition": "Also known as Sci-Fi, these are fictional stories based on science. They can be about the future or other worlds, and often include spaceships, extra-terrestrial beings (aliens), and advanced technology we don't currently have."
     },
     "Director": {
       "Name": "George Lucas",
@@ -19,12 +19,13 @@ let movies = [
     },
     "ImageURL": 'https://www.imdb.com/title/tt0076759/mediaviewer/rm3263717120/'
   },
+
   {
     "Title": 'A Clockwork Orange',
     "Description": "In the future, a sadistic gang leader is imprisoned and volunteers for a conduct-aversion experiment, but it doesn't go as planned.",
     "Genre": {
       "Name": "Science fiction",
-      "Definition": "Also known as Sci-Fi, these are fictional stories based on science. They can be about the future or other worlds, and often include spaceships, extra-terrestrial beings (aliens), and advanced technology we don’t currently have."
+      "Definition": "Also known as Sci-Fi, these are fictional stories based on science. They can be about the future or other worlds, and often include spaceships, extra-terrestrial beings (aliens), and advanced technology we don't currently have."
     },
     "Director": {
       "Name": "Stanley Kubrick",
@@ -33,6 +34,7 @@ let movies = [
     },
     "ImageURL": 'https://www.imdb.com/title/tt0066921/mediaviewer/rm1351407872/'
   },
+
   {
     "Title": 'The Matrix',
     "Description": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth - the life he knows is the elaborate deception of an evil cyber-intelligence.",
@@ -47,6 +49,7 @@ let movies = [
     },
     "ImageURL": 'https://www.imdb.com/title/tt0133093/mediaviewer/rm525547776/'
   },
+
   {
     "Title": 'The Holy Mountain',
     "Description": "In a corrupt, greed-fueled world, a powerful alchemist leads a messianic character and seven materialistic figures to the Holy Mountain, where they hope to achieve enlightenment.",
@@ -61,6 +64,7 @@ let movies = [
     },
     "ImageURL": 'https://www.imdb.com/title/tt0071615/mediaviewer/rm3911191040/'
   },
+
   {
     "Title": 'Waking Life',
     "Description": "A man shuffles through a dream, meeting various people and discussing the meanings and purposes of the universe.",
@@ -75,12 +79,13 @@ let movies = [
     },
     "ImageURL": 'https://www.imdb.com/title/tt0243017/mediaviewer/rm3365810432/'
   },
+
   {
     "Title": 'Zeitgeist: The Movie',
     "Description": "Mythology and belief in society today, presenting uncommon perspectives of common cultural issues.",
     "Genre": {
       "Name": "Documentary",
-      "Definition": "A practice of filmmaking that deals with actual and factual (and usually contemporary) issues, institutions, and people; whose purpose is to educate, inform, communicate, persuade, raise consciousness, or satisfy curiosity; in which the viewer is commonly addressed as a citizen of a public sphere; whose materials are selected and arranged from what already exists (rather than being made up); and whose methods involve filming ‘real people’ as themselves in actual locations, using natural light and ambient sound. Although filmmaking of this type dates to the earliest years of cinema (see actualities; travel film), the term documentary was not coined until the 1920s, when the founder of the British Documentary Movement, John Grierson, defined it as ‘the creative treatment of actuality’."
+      "Definition": "A practice of filmmaking that deals with actual and factual (and usually contemporary) issues, institutions, and people; whose purpose is to educate, inform, communicate, persuade, raise consciousness, or satisfy curiosity; in which the viewer is commonly addressed as a citizen of a public sphere; whose materials are selected and arranged from what already exists (rather than being made up); and whose methods involve filming 'real people' as themselves in actual locations, using natural light and ambient sound. Although filmmaking of this type dates to the earliest years of cinema (see actualities; travel film), the term documentary was not coined until the 1920s, when the founder of the British Documentary Movement, John Grierson, defined it as 'the creative treatment of actuality'."
     },
     "Director": {
       "Name": "Peter Joseph",
@@ -89,6 +94,7 @@ let movies = [
     },
     "ImageURL": 'https://www.imdb.com/title/tt1166827/mediaviewer/rm3788871168/'
   },
+
   {
     "Title": 'Salò, or the 120 Days of Sodom (Salò o le 120 giornate di Sodoma)',
     "Description": "In World War II Italy, four fascist libertines round up nine adolescent boys and girls and subject them to 120 days of physical, mental, and sexual torture.",
@@ -103,12 +109,13 @@ let movies = [
     },
     "ImageURL": 'https://www.imdb.com/title/tt0073650/mediaviewer/rm3704080897/'
   },
+
   {
     "Title": 'Lost Highway',
     "Description": "Anonymous videotapes presage a musician's murder conviction, and a gangster's girlfriend leads a mechanic astray.",
     "Genre": {
       "Name": "Mystery",
-      "Definition": "Mystery is a genre whose stories/plots focus on a puzzling crime, situation, or circumstance that needs to be solved. The term comes from the Latin mysterium, meaning “a secret thing.” stories can be either fictional or nonfictional, and can focus on both supernatural and non-supernatural topics. Many mystery stories involve what is called a “whodunit” scenario, meaning the mystery revolves around the uncovering a culprit or criminal."
+      "Definition": "Mystery is a genre whose stories/plots focus on a puzzling crime, situation, or circumstance that needs to be solved. The term comes from the Latin mysterium, meaning “a secret thing.” stories can be either fictional or nonfictional, and can focus on both supernatural and non-supernatural topics. Many mystery stories involve what is called a 'whodunit' scenario, meaning the mystery revolves around the uncovering a culprit or criminal."
     },
     "Director": {
       "Name": "David Lynch",
@@ -117,6 +124,7 @@ let movies = [
     },
     "ImageURL": 'https://www.imdb.com/title/tt0116922/mediaviewer/rm3025737728/'
   },
+
   {
     "Title": 'Seven Samurai (Shichinin no samurai)',
     "Description": "A poor village under attack by bandits recruits seven unemployed samurai to help them defend themselves.",
@@ -131,6 +139,7 @@ let movies = [
     },
     "ImageURL": 'https://www.imdb.com/title/tt0047478/mediaviewer/rm2518563840/'
   },
+
   {
     "Title": 'Midsommar',
     "Description": "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish mid-summer festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.",
