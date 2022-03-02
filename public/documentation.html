@@ -35,6 +35,10 @@
       background-color: #04AA6D;
       color: white;
     }
+
+    #true {
+      color: blue;
+    }
   </style>
 </head>
 
@@ -79,7 +83,7 @@
         <td>GET</td>
         <td>'/movies'</td>
         <td>None</td>
-        <td>JSON object holding data about all the movies</td>
+        <td>JSON object holding data about all the movies.</td>
       </tr>
 
       <tr>
@@ -88,41 +92,45 @@
         <td>'/movies/[title]'</td>
         <td>None</td>
         <td>JSON object holding data about a single movie, containing a <b>"Title"</b>, <b>"Description"</b>,
-          <b>"Genre"</b>, <b>"Director"</b>, and <b>"ImageURL"</b>. Example: </br><br>
+          <b>"Genre"</b>, <b>"Director"</b>, <b>"ImageURL"</b>, and <b>"Featured"</b>. Example: </br><br>
           <i>
             { <br>
-            <b>"Title"</b>: 'Midsommar', <br>
-            <b>"Description"</b>: "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish
+            &ensp; <b>"Title"</b>: "Midsommar", <br>
+            &ensp; <b>"Description"</b>: "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish
             mid-summer
             festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre
             competition at the hands of a pagan cult.", <br>
-            <b>"Genre"</b>:
-            {
-            <b>"Name"</b>: "Horror", <br>
-            <b>"Definition"</b>: "Horror is a genre of storytelling intended to scare, shock, and thrill its audience.
+            &ensp; <b>"Genre"</b>: <br>
+            &ensp; &ensp; &ensp; { <br>
+            &ensp; &ensp; &ensp; <b>"Name"</b>: "Horror", <br>
+            &ensp; &ensp; &ensp; <b>"Definition"</b>: "Horror is a genre of storytelling intended to scare, shock, and
+            thrill its audience.
             Horror can
             be interpreted in many different ways, but there is often a central villain, monster, or threat that is
             often
             a reflection of the fears being experienced by society at the time. This person or creature is called the
             “other,” a term that refers to someone that is feared because they are different or misunderstood. This is
             also why the horror genre has changed so much over the years. As culture and fears change, so does horror."
-            }, <br>
-            <b>"Director"</b>: <br>
-            {
-            <b>"Name"</b>: "Ari Aster", <br>
-            <b>"Biography"</b>: "Ari Aster was born on July 15, 1986 in New York City, New York, USA. He is a director
+            <br>
+            &ensp; &ensp; &ensp; }, <br>
+            &ensp; <b>"Director"</b>: <br>
+            &ensp; &ensp; &ensp; { <br>
+            &ensp; &ensp; &ensp; <b>"Name"</b>: "Ari Aster", <br>
+            &ensp; &ensp; &ensp; <b>"Biography"</b>: "Ari Aster was born on July 15, 1986 in New York City, New York,
+            USA. He is a director
             and
             writer, known for Hereditary (2018), Midsommar (2019) and Disappointment Blvd. (2022).", <br>
-            <b>"Date of birth"</b>: "July 15, 1986"
-            }, <br>
-            <b>"ImageURL"</b>: 'https://www.imdb.com/title/tt8772262/mediaviewer/rm3772802304/' <br>
+            &ensp; &ensp; &ensp; <b>"Date of birth"</b>: "July 15, 1986" <br>
+            &ensp; &ensp; &ensp; }, <br>
+            &ensp; <b>"ImageURL"</b>: "https://www.imdb.com/title/tt8772262/mediaviewer/rm3772802304/", <br>
+            &ensp; <b>"Featured"</b>: <b><span id="true">true</span></b> <br>
             }
           </i>
         </td>
       </tr>
 
       <tr>
-        <td>Gets the data for the "Genre" sub-object</td>
+        <td>Gets data from the "Genre" sub-object</td>
         <td>GET</td>
         <td>'/movies/genre/[genreName]'</td>
         <td>None</td>
@@ -130,8 +138,9 @@
           <b>"Genre"</b>: <br>
           <i>
             { <br>
-            <b>"Name"</b>: "Horror", <br>
-            <b>"Definition"</b>: "Horror is a genre of storytelling intended to scare, shock, and thrill its audience.
+            &ensp; <b>"Name"</b>: "Horror", <br>
+            &ensp; <b>"Definition"</b>: "Horror is a genre of storytelling intended to scare, shock, and thrill its
+            audience.
             Horror can
             be interpreted in many different ways, but there is often a central villain, monster, or threat that is
             often
@@ -145,15 +154,16 @@
       </tr>
 
       <tr>
-        <td>Gets the data for the "Director" sub-object</td>
+        <td>Gets data from the "Director" sub-object</td>
         <td>GET</td>
         <td>'/movies/directors/[directorName]'</td>
         <td>None</td>
         <td>A JSON object containing data about a <b>director</b>. Example: <br><br>
           <i>
             { <br>
-            <b>"Name"</b>: "David Lynch", <br>
-            <b>"Biography"</b>: "Born in 1946 in Missoula, Montana, David Lynch was raised in small-town America. After
+            &ensp; <b>"Name"</b>: "David Lynch", <br>
+            &ensp; <b>"Biography"</b>: "Born in 1946 in Missoula, Montana, David Lynch was raised in small-town America.
+            After
             high
             school, he went to Boston to attend the School of the Museum of Fine Arts. Shortly after that, he planned a
             three-year trip to Europe to work on his art, but didn't take to it and left after 15 days. In 1977, he
@@ -181,7 +191,7 @@
             confusing, and so films should be allowed to be, too'. David Lynch is original. He has done things in
             film-making that D.W. Griffith did in his day. David Lynch will never stop making beauty on the screen.",
             <br>
-            <b>"Date of birth"</b>: "January 20, 1946" <br>
+            &ensp; <b>"Date of birth"</b>: "January 20, 1946" <br>
             }
           </i>
         </td>
@@ -196,9 +206,11 @@
           add. Example: <br><br>
           <i>
             { <br>
-            <b>"username"</b>: "D_Jesus", <br>
-            <b>"Name"</b>: "Nebuchadnezzar", <br>
-            <b>"favourite_movies"</b>: [] <br>
+            &ensp; <b>"Username"</b>: "D_Jesus", <br>
+            &ensp; <b>"Name"</b>: "Nebuchadnezzar", <br>
+            &ensp; <b>"Email"</b>: "nebuchadnezzar@protonmail.com", <br>
+            &ensp; <b>"Birthdate"</b>: "1642-08-05", <br>
+            &ensp; <b>"Favourite movies"</b>: [] <br>
             }
           </i>
         </td>
@@ -207,10 +219,12 @@
           added, including an ID. Example: <br><br>
           <i>
             { <br>
-            <b>"username"</b>: "D_Jesus", <br>
-            <b>"Name"</b>: "Nebuchadnezzar", <br>
-            <b>"favourite_movies"</b>: [], <br>
-            <b>"id"</b>: "18bb3087-c68b-4411-8d84-6cf9c9bd9fe3" <br>
+            &ensp; <b>"Username"</b>: "D_Jesus", <br>
+            &ensp; <b>"Name"</b>: "Nebuchadnezzar", <br>
+            &ensp; <b>"Email"</b>: "nebuchadnezzar@protonmail.com", <br>
+            &ensp; <b>"Birthdate"</b>: "1642-08-05", <br>
+            &ensp; <b>"Favourite movies"</b>: [], <br>
+            &ensp; <b>"id"</b>: "18bb3087-c68b-4411-8d84-6cf9c9bd9fe3" <br>
             }
           </i>
         </td>
@@ -228,13 +242,13 @@
       </tr>
 
       <tr>
-        <td>Adding a movie to "favourite_movies" for a user</td>
+        <td>Adding a movie to "Favourite movies" for a user</td>
         <td>POST</td>
         <td>'/users/[id]/[movieTitle]'</td>
         <td>None</td>
         <td>A text message indicating
           whether the movie was
-          successfully added to "favourite_movies".</td>
+          successfully added to "Favourite movies".</td>
       </tr>
 
       <tr>
@@ -255,10 +269,12 @@
           about the user to be updated with the <b>username</b> changes included. Example: <br><br>
           <i>
             { <br>
-            <b>"username"</b>: "TheKingOfBurden 777", <br>
-            <b>"Name"</b>: "Stan", <br>
-            <b>"favourite_movies"</b>: [], <br>
-            <b>"id"</b>: 1 <br>
+            &ensp; <b>"Username"</b>: "TheKingOfBurden 777", <br>
+            &ensp; <b>"Name"</b>: "Stan", <br>
+            &ensp; <b>"Email"</b>: "thekingofburden@gmail.com", <br>
+            &ensp; <b>"Birthdate"</b>: "1990-08-05", <br>
+            &ensp; <b>"Favourite movies"</b>: [], <br>
+            &ensp; <b>"id"</b>: 1 <br>
             }
           </i>
         </td>
@@ -266,10 +282,12 @@
           about the updated user. Example: <br><br>
           <i>
             { <br>
-            <b>"username"</b>: "TheKingOfBurden 777", <br>
-            <b>"Name"</b>: "Stan", <br>
-            <b>"favourite_movies"</b>: [], <br>
-            <b>"id"</b>: 1 <br>
+            &ensp; <b>"Username"</b>: "TheKingOfBurden 777", <br>
+            &ensp; <b>"Name"</b>: "Stan", <br>
+            &ensp; <b>"Email"</b>: "thekingofburden@gmail.com", <br>
+            &ensp; <b>"Birthdate"</b>: "1990-08-05", <br>
+            &ensp; <b>"Favourite movies"</b>: [], <br>
+            &ensp; <b>"id"</b>: 1 <br>
             }
           </i>
         </td>
