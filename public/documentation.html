@@ -87,9 +87,25 @@
       </tr>
 
       <tr>
+        <td>Gets a list of data about all genres</td>
+        <td>GET</td>
+        <td>'/genres'</td>
+        <td>None</td>
+        <td>JSON object holding data about all the genres.</td>
+      </tr>
+
+      <tr>
+        <td>Gets a list of data about all directors</td>
+        <td>GET</td>
+        <td>'/directors'</td>
+        <td>None</td>
+        <td>JSON object holding data about all the directors.</td>
+      </tr>
+
+      <tr>
         <td>Gets a list of data about a single movie</td>
         <td>GET</td>
-        <td>'/movies/[title]'</td>
+        <td>'/movies/[Title]'</td>
         <td>None</td>
         <td>JSON object holding data about a single movie, containing a <b>"Title"</b>, <b>"Description"</b>,
           <b>"Genre"</b>, <b>"Director"</b>, <b>"ImageURL"</b>, and <b>"Featured"</b>. Example: </br><br>
@@ -132,7 +148,7 @@
       <tr>
         <td>Gets data from the "Genre" sub-object</td>
         <td>GET</td>
-        <td>'/movies/genre/[genreName]'</td>
+        <td>'/genres/[Name]'</td>
         <td>None</td>
         <td>A JSON object containing data about a <b>genre</b>. Example: <br><br>
           <b>"Genre"</b>: <br>
@@ -156,7 +172,7 @@
       <tr>
         <td>Gets data from the "Director" sub-object</td>
         <td>GET</td>
-        <td>'/movies/directors/[directorName]'</td>
+        <td>'/directors/[Name]'</td>
         <td>None</td>
         <td>A JSON object containing data about a <b>director</b>. Example: <br><br>
           <i>
@@ -233,7 +249,7 @@
       <tr>
         <td>Deleting an existing User</td>
         <td>DELETE</td>
-        <td>'/users/[id]'</td>
+        <td>'/users/[Username]'</td>
         <td>None</td>
         <td>A text message indicating
           whether the user was
@@ -244,7 +260,7 @@
       <tr>
         <td>Adding a movie to "Favourite movies" for a user</td>
         <td>POST</td>
-        <td>'/users/[id]/[movieTitle]'</td>
+        <td>'/users/[Username]/movies/[MovieID]'</td>
         <td>None</td>
         <td>A text message indicating
           whether the movie was
@@ -254,7 +270,7 @@
       <tr>
         <td>Removing a movie from favourites for a user</td>
         <td>DELETE</td>
-        <td>'/users/[id]/[movieTitle]'</td>
+        <td>'/users/[Username]/movies/[MovieID]'</td>
         <td>None</td>
         <td>A text message indicating
           whether the movie was
@@ -262,11 +278,11 @@
       </tr>
 
       <tr>
-        <td>Updating user's username</td>
+        <td>Updating user's info</td>
         <td>PUT</td>
-        <td>'/users/[username]'</td>
+        <td>'/users/[Username]'</td>
         <td>A JSON object holding data
-          about the user to be updated with the <b>username</b> changes included. Example: <br><br>
+          about the user to be updated with the changes to the <b>info</b> included. Example: <br><br>
           <i>
             { <br>
             &ensp; <b>"Username"</b>: "TheKingOfBurden 777", <br>
