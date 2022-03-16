@@ -3,7 +3,9 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       uuid = require('uuid'),
       mongoose = require('mongoose'),
-      Models = require('./models/models.js');
+      cors = require('cors'),
+      Models = require('./models/models.js'),
+      { check, validationResult } = require('express-validator');
 
 const app = express();
 
@@ -18,6 +20,18 @@ app.use(morgan('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
+
+let allowedOrigins = ['http://localhost:8080']
+app.use(cors({
+  origin: (origin, callback) => {
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1) {
+      let message = "The CORS policy for this application doesn't allow origin " + origin;
+      return callback(new Error(message ), false);
+    }
+    return callback(null, true);
+  }
+}));
 
 let auth = require('./auth')(app);
 const passport = require('passport');
@@ -256,7 +270,7 @@ app.get('/directors', passport.authenticate('jwt', { session: false }), (req, re
 
 // READ // Gets A Single Movie
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Movies.findOne( {Title: req.params.Title} )
+  Movies.findOne( { Title: req.params.Title } )
   .then((movie) => {
     if(!movie) {
       res.status(400).send(req.params.Title + ' was not found!')
@@ -272,7 +286,7 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
 
 // READ // Gets data about a 'Genre' by Name
 app.get('/genres/:Name', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Genres.findOne( {Name: req.params.Name} )
+  Genres.findOne( { Name: req.params.Name } )
   .then((genre) => {
     if(!genre) { 
       res.status(400).send(req.params.Name + " doesn't exist!");
@@ -304,7 +318,7 @@ app.get('/directors/:Name', passport.authenticate('jwt', { session: false }), (r
 
 // READ // Get a User by Username
 app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Users.findOne({ Username: req.params.Username })
+  Users.findOne( { Username: req.params.Username } )
   .then((user) => {
     if(!user) {
       res.status(400).send(req.params.Username + " doesn't exist!");
@@ -319,8 +333,22 @@ app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (r
 });
 
 // CREATE // Posts a new User
-app.post('/users', (req, res) => {
-  Users.findOne({Username: req.body.Username})
+app.post('/users', 
+  [
+   check('Username', 'Username has to consist of at least 5 alphanumeric characters.').isLength({min: 5}),
+   check('Username', 'Username contains non-alphanumeric characters, which is not allowed.').isAlphanumeric(),
+   check('Password', 'Password is required').not().isEmpty(),
+   check('Email', 'Email does not appear to be valid.').isEmail()
+  ], (req, res) => {
+  // checking the validation object for errors
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() })
+  }
+
+  let hashedPassword = Users.hashPassword(req.body.Password);
+
+  Users.findOne( { Username: req.body.Username } )
   .then((user) => {
     if(user) {
       return res.status(400).send(req.body.Username + ' already exists!');
@@ -328,7 +356,7 @@ app.post('/users', (req, res) => {
       Users
         .create({
           Username: req.body.Username,
-          Password: req.body.Password,
+          Password: hashedPassword,
           Email: req.body.Email,
           Birthdate: req.body.Birthdate
         })
@@ -344,7 +372,7 @@ app.post('/users', (req, res) => {
 // DELETE // Deleting an existing user 
 app.delete('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
 
-  Users.findOneAndRemove({ Username: req.params.Username})
+  Users.findOneAndRemove( { Username: req.params.Username} )
   .then((user) => {
     if(!user) {
       res.status(400).send(req.params.Username + ' was not found');
@@ -361,7 +389,7 @@ app.delete('/users/:Username', passport.authenticate('jwt', { session: false }),
 // CREATE // Post a movie to user's "Favoruite movies" array by MovieID
 app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
 
-  Users.findOneAndUpdate({ Username: req.params.Username} ,
+  Users.findOneAndUpdate( { Username: req.params.Username} ,
   { $push: { "Favourite movies": req.params.MovieID } },
   { new: true },
   (err, updatedUser) => {
@@ -377,7 +405,7 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { sess
 // DELETE // Deleting a movie from user's "Favoruite movies" array by MovieID
 app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
 
-  Users.findOneAndUpdate({ Username: req.params.Username},
+  Users.findOneAndUpdate( { Username: req.params.Username},
     { $pull: { "Favourite movies": req.params.MovieID } },
     { new: true },
     (err, updatedUser) => {
@@ -391,13 +419,26 @@ app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { se
 });
 
 // UPDATE // Updating User info
-app.put('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.put('/users/:Username', 
+[
+ check('Username', 'Username has to consist of at least 5 alphanumeric characters.').isLength({min: 5}),
+ check('Username', 'Username contains non-alphanumeric characters, which is not allowed.').isAlphanumeric(),
+ check('Password', 'Password is required').not().isEmpty(),
+ check('Email', 'Email does not appear to be valid.').isEmail()
+], passport.authenticate('jwt', { session: false }), (req, res) => {
+  let errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() })
+  }
+
+  let hashedPassword = Users.hashPassword(req.body.Password);
 
   Users.findOneAndUpdate({ Username: req.params.Username},
     { $set:
       {
         Username: req.body.Username,
-        Password: req.body.Password,
+        Password: hashedPassword,
         Email: req.body.Email,
         Birthdate: req.body.Birthdate
       }

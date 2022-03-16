@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'),
+      bcrypt = require('bcrypt');
 /* const { stringify } = require('uuid'); can't remember adding this line of code */
 
 let movieSchema = mongoose.Schema({
@@ -24,6 +25,13 @@ let userSchema = mongoose.Schema({
   "Birthdate": Date,
   "Favourite movies": [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}]
 });
+
+userSchema.statics.hashPassword = (password) => {
+  return bcrypt.hashSync(password, 10);
+};
+userSchema.methods.validatePassword = function(password) {
+  return bcrypt.compareSync(password, this.Password);
+};
 
 let genreSchema = mongoose.Schema({
   Name: String,
