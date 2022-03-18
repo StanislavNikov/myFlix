@@ -14,7 +14,8 @@ const Movies = Models.Movie,
       Genres = Models.Genre,
       Directors = Models.Director;
 
-mongoose.connect('mongodb://localhost:27017/myFlixDB', {useNewUrlParser: true, useUnifiedTopology: true})
+/* mongoose.connect('mongodb://localhost:27017/myFlixDB', {useNewUrlParser: true, useUnifiedTopology: true}) */
+mongoose.connect(process.env.myflixdb, {useNewUrlParser: true, useUnifiedTopology: true})
 
 app.use(morgan('common'));
 app.use(bodyParser.json());
