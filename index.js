@@ -240,7 +240,7 @@ app.get('/', (req, res) => {
 });
 
 // READ // Gets ALL movies
-app.get('/movies', (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
   .then((movies) => res.status(200).json(movies))
   .catch((err) => {
@@ -426,7 +426,7 @@ app.put('/users/:Username',
  check('Username', 'Username contains non-alphanumeric characters, which is not allowed.').isAlphanumeric(),
  check('Password', 'Password is required').not().isEmpty(),
  check('Email', 'Email does not appear to be valid.').isEmail()
-], (req, res) => {
+], passport.authenticate('jwt', { session: false }), (req, res) => {
   let errors = validationResult(req);
 
   if (!errors.isEmpty()) {
