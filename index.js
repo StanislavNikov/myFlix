@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234']
+let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234', 'https://www.imdb.com/']
 app.use(cors({
   origin: (origin, callback) => {
     if(!origin) return callback(null, true);
@@ -48,15 +48,15 @@ let users = [];
 
 app.get('/', (req, res) => {
 
-  let documentation = document.createElement('a');
+ /*  let documentation = document.createElement('a');
   let link = document.createTextNode("https://myflixxxdb.herokuapp.com/documentation");
   documentation.title = "https://myflixxxdb.herokuapp.com/documentation";
   documentation.href = "https://myflixxxdb.herokuapp.com/documentation";
-  documentation.appendChild(link);
+  documentation.appendChild(link); */
   /*  function link(text, href, escape = true) {
     return html`<a href="${href}">${escape ? DOM.text(text) : text}`;
   } */ 
-  res.send('Wellcome to myFlix - your movie app of choice!\n\n\nHere you can check out the documentation page: ' + documentation);
+  res.send('Wellcome to myFlix - your movie app of choice!\n\n\nHere you can check out the documentation page: https://myflixxxdb.herokuapp.com/documentation');
 });
 
 
