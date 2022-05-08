@@ -19,8 +19,8 @@ const Movies = Models.Movie,
 
 
 /* mongoose.connect('mongodb://localhost:27017/myFlixDB', {useNewUrlParser: true, useUnifiedTopology: true}) */
-/* mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true}) */
-mongoose.connect(process.env.myflixdb, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+/* mongoose.connect(process.env.myflixdb, {useNewUrlParser: true, useUnifiedTopology: true}) */
 
 app.use(morgan('common'));
 app.use(bodyParser.json());
