@@ -54,9 +54,17 @@ app.get('/', (req, res) => {
   documentation.title = "https://myflixxxdb.herokuapp.com/documentation";
   documentation.href = "https://myflixxxdb.herokuapp.com/documentation";
   documentation.appendChild(link); */
+  
   /*  function link(text, href, escape = true) {
     return html`<a href="${href}">${escape ? DOM.text(text) : text}`;
   } */ 
+
+  /* link = (text, href) => {
+    const link = DOM.element('a', { href })
+    link.textContent = text
+    return link
+  } */
+
   res.send('Wellcome to myFlix - your movie app of choice!\n\n\nHere you can check out the documentation page: https://myflixxxdb.herokuapp.com/documentation');
 });
 
@@ -146,7 +154,7 @@ app.get('/directors/:Name', passport.authenticate('jwt', { session: false }), (r
 
 
 // READ // Get a User by Username
-app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/users/:Username', /* passport.authenticate('jwt', { session: false }), */ (req, res) => {
   Users.findOne( { Username: req.params.Username } )
   .then((user) => {
     if(!user) {
