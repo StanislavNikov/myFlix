@@ -19,16 +19,16 @@ const Movies = Models.Movie,
 
 
 /* mongoose.connect('mongodb://localhost:27017/myFlixDB', {useNewUrlParser: true, useUnifiedTopology: true}) */
-/* mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true}) */
-mongoose.connect(process.env.myflixdb, {useNewUrlParser: true, useUnifiedTopology: true})
+// mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true}) // THIS LINE NEEDED TO RUN "node index.js"!!!
+mongoose.connect(process.env.myflixdb, {useNewUrlParser: true, useUnifiedTopology: true}) // THIS LINE NEEDED TO RUN APP ON HEROKU!!! WHY??? ??? ???
 
 app.use(morgan('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-app.use(cors());
-/* let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234', 'https://www.imdb.com/']
+// app.use(cors());
+let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234']
 app.use(cors({
   origin: (origin, callback) => {
     if(!origin) return callback(null, true);
@@ -38,7 +38,7 @@ app.use(cors({
     }
     return callback(null, true);
   }
-})); */
+}));
 
 let auth = require('./auth')(app);
 const passport = require('passport');
@@ -70,7 +70,7 @@ app.get('/', (req, res) => {
 
 
 // READ // Gets ALL movies
-app.get('/movies',/*  passport.authenticate('jwt', { session: false }), */ (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
   .then((movies) => res.status(200).json(movies))
   .catch((err) => {
